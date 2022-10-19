@@ -1,0 +1,43 @@
+<%- include("includes/header.ejs") %>
+  </head>
+  <body>
+      <%- include("includes/nav.ejs") %>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="display-2 text-danger mb-5">Book Store</h1>
+                
+                <div class="card card-form shadow-sm mb-4">
+                    <div class="card-header bg-dark">
+                         <h3 class="text-white">Find a book or magazine by its ISBN or Email.</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="search">
+                            <form class="d-lg-flex my-2 my-lg-0" action="/findbm" method="post">
+                                <input class="form-control me-sm-2" type="text" name="isbn_email" placeholder="Enter ISBN or Email">
+                                <button class="btn btn-success my-2 my-sm-0" type="submit">search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-dark">Export a random book and a magazine to csv file</h3>
+                <form class="my-3" action="/exportcsv" method="post">
+                    <button class="btn btn-success shadow-sm my-2 my-sm-0" type="submit">Export CSV</button>
+                </form>
+                <!-- <div class="card card-form shadow-sm">
+                    <div class="card-header bg-light">
+                         <h3 class="text-dark">Find all books and magazines by authors’ email.</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="search">
+                            <form class="d-lg-flex my-2 my-lg-0" action="/findbyemail" method="post">
+                                <input class="form-control me-sm-2" type="text" placeholder="Find all books and magazines by authors’ email.">
+                                <button class="btn btn-success my-2 my-sm-0" type="submit">search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+<%- include('includes/end.ejs') %>

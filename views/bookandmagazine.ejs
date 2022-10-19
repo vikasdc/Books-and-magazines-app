@@ -1,0 +1,82 @@
+<%- include("includes/header.ejs") %>
+  </head>
+  <body>
+      <%- include("includes/nav.ejs") %>
+    <div class="container my-5">
+        <% if(!sorted) { %> <!-- display all books and magazines -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="text-dark text-center mb-4">Books</h2>
+                    <%let i = 0%>
+                    <% for(let book of books){   %>
+                    <div class="card card-form shadow-sm mb-4">
+                        <div class="card-header shadow-sm bg-dark">
+                             <h3 class="text-white text-center">Book <%=i +=1 %></h3>
+                        </div>
+                            <div class="card-body">
+                                <p class="my-3 lead"><b>Title:</b> <%=book.title%></p>
+                                <p class="my-3 lead"><b>ISBN Code:</b> <%=book.isbn%></p>
+                                <p class="my-3 lead"><b>Authors:</b> <%=book.authors%></p>
+                                <p class="my-3 lead"><b>Description:</b> <%=book.description%></p>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="text-dark text-center mb-4">Magazines</h2>
+                    <%let j = 0%>
+                    <% for(let magazine of magazines){ %>
+                    <div class="card card-form shadow-sm mb-4">
+                        <div class="card-header shadow-sm bg-dark">
+                             <h3 class="text-white text-center">Magazine <%=j +=1%></h3>
+                        </div>
+                            <div class="card-body">
+                                <p class="my-3 lead"><b>Title:</b> <%=magazine.title%></p>
+                                <p class="my-3 lead"><b>ISBN Code:</b> <%=magazine.isbn%></p>
+                                <p class="my-3 lead"><b>Authors:</b> <%=magazine.authors%></p>
+                                <p class="my-3 lead"><b>Published At:</b> <%=magazine.publishedAt%></p>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>    
+        <% } else { %>   <!-- display all books and magazines sorted by Title -->
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <h2 class="text-dark text-center mb-4">
+                        <% if(findbyId){%>
+                            Found Books and Magazines for ISBN - <%=isbn_email%>
+                            <% } else if(findbyEmail){ %>
+                                Found Books and Magazines for Email - <%=isbn_email%>
+                                <% } else { %> 
+                                    Sorted Books and Magazines by Title
+                                    <% } %>
+                    </h2>
+                    <%let j = 0%>
+                    <% for(let sortedbm of sortedbms){ %>
+                    <div class="card card-form shadow-sm mb-4">
+                        <div class="card-header shadow-sm bg-dark">
+                             <h3 class="text-white text-center">
+                                <% if(sortedbm.publishedAt){%>
+                                    Magazine -
+                                    <% } else { %>
+                                        Book -
+                                        <% } %> <%=j +=1%></h3>
+                        </div>
+                            <div class="card-body">
+                                <p class="my-3 lead"><b>Title:</b> <%=sortedbm.title%></p>
+                                <p class="my-3 lead"><b>ISBN Code:</b> <%=sortedbm.isbn%></p>
+                                <p class="my-3 lead"><b>Authors:</b> <%=sortedbm.authors%></p>
+                                <p class="my-3 lead"><% if(sortedbm.publishedAt){%>
+                                    <b>Publsihed At: </b><%=sortedbm.publishedAt%></p>
+                                    <% } else { %>
+                                        <b>Description: </b><%=sortedbm.description%></p>
+                                        <% } %>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    </div>
+<%- include('includes/end.ejs') %>
