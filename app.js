@@ -5,6 +5,7 @@
 const express = require("express")
 const bodyparser = require("body-parser")
 const bm = require("./routes/bm")
+const port = process.env.PORT || 80
 
 const app = express()
 
@@ -16,4 +17,6 @@ app.use(bodyparser.urlencoded({extended:false}))
 app.use(bm)
 
 
-app.listen(80)
+app.listen(port, () => {
+    console.log(`Listening to port ${port}`)
+})
