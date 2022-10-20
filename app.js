@@ -1,6 +1,10 @@
-import express from "express"
-import bodyparser from "body-parser"
-import bm from "./routes/bm.js"
+// import express from "express"
+// import bodyparser from "body-parser"
+// import bm from "./routes/bm.js"
+
+const express = require("express")
+const bodyparser = require("body-parser")
+const bm = require("./routes/bm")
 
 const app = express()
 

@@ -24,6 +24,9 @@
                 <form class="my-3" action="/exportcsv" method="post">
                     <button class="btn btn-success shadow-sm my-2 my-sm-0" type="submit">Export CSV</button>
                 </form>
+                <% if(exported){ %>
+                    <h3 class="text-dark">Exported a random book and a magazine to csv-data/random_book_and_magazine.csv</h3>
+                    <% } %>
                 <!-- <div class="card card-form shadow-sm">
                     <div class="card-header bg-light">
                          <h3 class="text-dark">Find all books and magazines by authors’ email.</h3>

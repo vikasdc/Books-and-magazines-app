@@ -1,11 +1,12 @@
 {
-  "name": "nodejs-practice",
+  "name": "book_and_magazine_app",
+  "type": "module.cjs",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"app.js",
+    "test": "jest --watchAll"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,9 @@
     "express": "^4.18.2",
     "json2csv": "^5.0.7",
     "node-fetch": "^3.2.10"
+  },
+  "devDependencies": {
+    "jest": "^29.2.1",
+    "supertest": "^6.3.0"
   }
 }
